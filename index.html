@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabor Casero | Restaurante</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h1>Sabor Casero</h1>
+
+            <div class="menu">
+                <a href="#inicio">Inicio</a>
+                <a href="#menu">Menú</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <p class="small-title">RESTAURANTE</p>
+
+                <h2>El sabor de casa<br>en cada plato</h2>
+
+                <p>
+                    Comida deliciosa, preparada con ingredientes frescos
+                    y mucho cariño.
+                </p>
+
+                <a href="#menu" class="button">Ver nuestro menú</a>
+            </div>
+        </section>
+
+        <section id="menu" class="section">
+            <p class="section-title">NUESTRO MENÚ</p>
+            <h2>Platos favoritos</h2>
+
+            <div class="cards">
+
+    <!-- HAMBURGUESA -->
+    <article class="card" onclick="abrirPlato('hamburguesa')">
+
+        <div class="food-image">
+            <img src="img/hamburguesa.jpg" alt="Hamburguesa Casera">
+        </div>
+
+        <h3>Hamburguesa Casera</h3>
+
+        <p>
+            Carne, queso, vegetales frescos y nuestra
+            salsa especial.
+        </p>
+
+        <strong>$18.000</strong>
+
+    </article>
+
+
+    <!-- PIZZA -->
+    <article class="card" onclick="abrirPlato('pizza')">
+
+        <div class="food-image">
+            <img src="img/pizza.jpg" alt="Pizza Especial">
+        </div>
+
+        <h3>Pizza Especial</h3>
+
+        <p>
+            Masa artesanal, queso, tomate y tus
+            ingredientes favoritos.
+        </p>
+
+        <strong>$25.000</strong>
+
+    </article>
+
+
+    <!-- PASTA -->
+    <article class="card" onclick="abrirPlato('pasta')">
+
+        <div class="food-image">
+            <img src="img/pasta.jpg" alt="Pasta de la Casa">
+        </div>
+
+        <h3>Pasta de la Casa</h3>
+
+        <p>
+            Pasta fresca acompañada de nuestra
+            salsa especial.
+        </p>
+
+        <strong>$20.000</strong>
+
+    </article>
+
+</div>
+        </section>
+
+        <section id="nosotros" class="about">
+            <div>
+                <p class="section-title">SOBRE NOSOTROS</p>
+                <h2>Hecho con cariño</h2>
+
+                <p>
+                    En Sabor Casero creemos que una buena comida puede
+                    convertir un día normal en un momento especial.
+                </p>
+
+                <p>
+                    Utilizamos ingredientes frescos y preparamos cada
+                    plato pensando en nuestros clientes.
+                </p>
+            </div>
+        </section>
+<section id="contacto" class="contact">
+
+    <p class="section-title">CONTACTO</p>
+
+    <h2>¿Quieres visitarnos?</h2>
+
+    <p class="contact-description">
+        Estamos listos para preparar algo delicioso para ti.
+    </p>
+
+    <div class="contact-info">
+
+        <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <h3>Ubicación</h3>
+            <p>Melgar, Tolima</p>
+
+            <a
+                href="https://www.google.com/maps/search/?api=1&query=Melgar+Tolima"
+                target="_blank"
+            >
+                Ver ubicación
+            </a>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-icon">📞</div>
+            <h3>Teléfono</h3>
+            <p>321 365 2426</p>
+
+            <a href="tel:+573213652426">
+                Llamarnos
+            </a>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-icon">📧</div>
+            <h3>Correo</h3>
+            <p>willinegue@gmail.com</p>
+
+            <a href="mailto:willinegue@gmail.com">
+                Enviar correo
+            </a>
+        </div>
+
+    </div>
+
+</section>
+        
+    </main>
+
+    <a
+        href="https://wa.me/573213652426?text=Hola,%20quiero%20hacer%20un%20pedido%20en%20Sabor%20Casero"
+        class="whatsapp-float"
+        target="_blank"
+    >
+        💬 Pedir por WhatsApp
+    </a>
+    <!-- =========================
+VENTANA DE PLATO
+========================= -->
+
+<div id="platoModal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close-modal" onclick="cerrarPlato()">
+            ×
+        </button>
+
+        <img id="modalImagen" src="" alt="">
+
+        <div class="modal-info">
+
+            <p class="modal-categoria">
+                SABOR CASERO
+            </p>
+
+            <h2 id="modalTitulo"></h2>
+
+            <p id="modalDescripcion"></p>
+
+            <strong id="modalPrecio"></strong>
+
+            <a
+                id="modalWhatsApp"
+                href="#"
+                target="_blank"
+                class="modal-button"
+            >
+                💬 Pedir este plato
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+JAVASCRIPT
+========================= -->
+
+<script>
+
+function abrirPlato(plato) {
+
+    const modal = document.getElementById("platoModal");
+
+    const imagen = document.getElementById("modalImagen");
+    const titulo = document.getElementById("modalTitulo");
+    const descripcion = document.getElementById("modalDescripcion");
+    const precio = document.getElementById("modalPrecio");
+    const whatsapp = document.getElementById("modalWhatsApp");
+
+
+    if (plato === "hamburguesa") {
+
+        imagen.src = "img/hamburguesa.jpg";
+        imagen.alt = "Hamburguesa Casera";
+
+        titulo.textContent = "Hamburguesa Casera";
+
+        descripcion.textContent =
+            "Carne de res, queso, vegetales frescos y nuestra deliciosa salsa especial.";
+
+        precio.textContent = "$18.000";
+
+        whatsapp.href =
+            "https://wa.me/573213652426?text=Hola,%20quiero%20pedir%20una%20Hamburguesa%20Casera";
+
+    }
+
+
+    if (plato === "pizza") {
+
+        imagen.src = "img/pizza.jpg";
+        imagen.alt = "Pizza Especial";
+
+        titulo.textContent = "Pizza Especial";
+
+        descripcion.textContent =
+            "Masa artesanal, queso, tomate y tus ingredientes favoritos.";
+
+        precio.textContent = "$25.000";
+
+        whatsapp.href =
+            "https://wa.me/573213652426?text=Hola,%20quiero%20pedir%20una%20Pizza%20Especial";
+
+    }
+
+
+    if (plato === "pasta") {
+
+        imagen.src = "img/pasta.jpg";
+        imagen.alt = "Pasta de la Casa";
+
+        titulo.textContent = "Pasta de la Casa";
+
+        descripcion.textContent =
+            "Pasta fresca acompañada de nuestra cremosa salsa especial.";
+
+        precio.textContent = "$20.000";
+
+        whatsapp.href =
+            "https://wa.me/573213652426?text=Hola,%20quiero%20pedir%20una%20Pasta%20de%20la%20Casa";
+
+    }
+
+
+    modal.style.display = "flex";
+}
+
+
+function cerrarPlato() {
+
+    document.getElementById("platoModal").style.display = "none";
+
+}
+
+
+window.onclick = function(event) {
+
+    const modal = document.getElementById("platoModal");
+
+    if (event.target === modal) {
+
+        cerrarPlato();
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
